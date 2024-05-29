@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+<link href="/static/css/view_requests.css" rel="stylesheet">
+<br> <br>
+<div class="student-info">
+    <h2>Exeat Information</h2>
+
+    <p><strong>Name: {{ open_requests.surname + " " + open_requests.otherNames }}</strong> </p>
+    <p><strong>Matric Number: {{ open_requests.matricNumber }}</strong> </p>
+    <p><strong>Exeat Date: {{ open_requests.exeat_date }}</strong> </p>
+    <p><strong>Return Date: {{ open_requests.return_date }}</strong> </p>
+    <p><strong>Reason: {{ open_requests.reason }}</strong> </p>
+    <form method="POST">
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" id="status" name="status">
+              <option value="">Pending</option>
+              <option value="Approved">Approved</option>
+              <option value="Declined">Declined</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+        <button type="submit" class="btn btn-primary btn-block btn-custom">Change</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}

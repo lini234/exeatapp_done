@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>Notifications - exported project</title>
+    <meta property="og:title" content="Notifications - exported project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Noto Sans;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background-color: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./notifications.css" rel="stylesheet" />
+
+      <div class="notifications-container">
+        <div class="notifications-notification">
+          <div class="notifications-frame86">
+            <div class="notifications-frame579">
+              <div class="notifications-frame586">
+                <div class="notifications-frame577">
+                  <img
+                    src="../website/public/external/ellipse3i104-spzm-200w.png"
+                    alt="Ellipse3I104"
+                    class="notifications-ellipse3"
+                  />
+                  <img
+                    src="../website/public/external/rremovebgpreviewtransformed1i104-i2y2-200h.png"
+                    alt="Rremovebgpreviewtransformed1I104"
+                    class="notifications-rremovebgpreviewtransformed1"
+                  />
+                </div>
+                <div class="notifications-details">
+                  <span class="notifications-text">
+                    <span>
+                      Corem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc vulputate libero et velit interdum, ac aliquet odio
+                      mattis.
+                    </span>
+                  </span>
+                  <div class="notifications-frame523">
+                    <div class="notifications-frame479">
+                      <div class="notifications-frame452">
+                        <div class="notifications-frame73">
+                          <span class="notifications-text02">
+                            <span>00:00</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="notifications-frame446">
+                      <div class="notifications-frame7301">
+                        <span class="notifications-text04">
+                          <span>00/00/0000</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="../website/public/external/vector5i104-sd9.svg"
+                  alt="Vector5I104"
+                  class="notifications-vector5"
+                />
+              </div>
+              <div class="notifications-frame587">
+                <div class="notifications-frame5771">
+                  <img
+                    src="../website/public/external/ellipse3i104-le25-200w.png"
+                    alt="Ellipse3I104"
+                    class="notifications-ellipse31"
+                  />
+                  <img
+                    src="../website/public/external/rremovebgpreviewtransformed1i104-r88-200h.png"
+                    alt="Rremovebgpreviewtransformed1I104"
+                    class="notifications-rremovebgpreviewtransformed11"
+                  />
+                </div>
+                <div class="notifications-details1">
+                  <span class="notifications-text06">
+                    <span>
+                      Corem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc vulputate libero et velit interdum, ac aliquet odio
+                      mattis.
+                    </span>
+                  </span>
+                  <div class="notifications-frame5231">
+                    <div class="notifications-frame4791">
+                      <div class="notifications-frame4521">
+                        <div class="notifications-frame7302">
+                          <span class="notifications-text08">
+                            <span>00:00</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="notifications-frame4461">
+                      <div class="notifications-frame7303">
+                        <span class="notifications-text10">
+                          <span>00/00/0000</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="../website/public/external/vector5i104-fxl.svg"
+                  alt="Vector5I104"
+                  class="notifications-vector51"
+                />
+              </div>
+              <div class="notifications-frame588">
+                <div class="notifications-frame5772">
+                  <img
+                    src="../website/public/external/ellipse3i104-91n-200w.png"
+                    alt="Ellipse3I104"
+                    class="notifications-ellipse32"
+                  />
+                  <img
+                    src="../website/public/external/rremovebgpreviewtransformed1i104-ltsp-200h.png"
+                    alt="Rremovebgpreviewtransformed1I104"
+                    class="notifications-rremovebgpreviewtransformed12"
+                  />
+                </div>
+                <div class="notifications-details2">
+                  <span class="notifications-text12">
+                    <span>
+                      Corem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc vulputate libero et velit interdum, ac aliquet odio
+                      mattis.
+                    </span>
+                  </span>
+                  <div class="notifications-frame5232">
+                    <div class="notifications-frame4792">
+                      <div class="notifications-frame4522">
+                        <div class="notifications-frame7304">
+                          <span class="notifications-text14">
+                            <span>00:00</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="notifications-frame4462">
+                      <div class="notifications-frame7305">
+                        <span class="notifications-text16">
+                          <span>00/00/0000</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="../website/public/external/vector5i104-3all.svg"
+                  alt="Vector5I104"
+                  class="notifications-vector52"
+                />
+              </div>
+              <div class="notifications-frame589">
+                <div class="notifications-frame5773">
+                  <img
+                    src="../website/public/external/ellipse3i104-tuqh-200w.png"
+                    alt="Ellipse3I104"
+                    class="notifications-ellipse33"
+                  />
+                  <img
+                    src="../website/public/external/rremovebgpreviewtransformed1i104-khzs-200h.png"
+                    alt="Rremovebgpreviewtransformed1I104"
+                    class="notifications-rremovebgpreviewtransformed13"
+                  />
+                </div>
+                <div class="notifications-details3">
+                  <span class="notifications-text18">
+                    Corem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nunc vulputate libero et velit interdum, ac aliquet odio
+                    mattis.
+                  </span>
+                  <div class="notifications-frame5233">
+                    <div class="notifications-frame4793">
+                      <div class="notifications-frame4523">
+                        <div class="notifications-frame7306">
+                          <span class="notifications-text19">
+                            <span>00:00</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="notifications-frame4463">
+                      <div class="notifications-frame7307">
+                        <span class="notifications-text21">
+                          <span>00/00/0000</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="../website/public/external/vector5i104-xhz.svg"
+                  alt="Vector5I104"
+                  class="notifications-vector53"
+                />
+              </div>
+              <div class="notifications-frame590">
+                <div class="notifications-frame5774">
+                  <img
+                    src="../website/public/external/ellipse3i104-tbs-200h.png"
+                    alt="Ellipse3I104"
+                    class="notifications-ellipse34"
+                  />
+                  <img
+                    src="../website/public/external/rremovebgpreviewtransformed1i104-ap3u-200h.png"
+                    alt="Rremovebgpreviewtransformed1I104"
+                    class="notifications-rremovebgpreviewtransformed14"
+                  />
+                </div>
+                <div class="notifications-details4">
+                  <span class="notifications-text23">
+                    <span>
+                      Corem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc vulputate libero et velit interdum, ac aliquet odio
+                      mattis.
+                    </span>
+                  </span>
+                  <div class="notifications-frame5234">
+                    <div class="notifications-frame4794">
+                      <div class="notifications-frame4524">
+                        <div class="notifications-frame7308">
+                          <span class="notifications-text25">
+                            <span>00:00</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="notifications-frame4464">
+                      <div class="notifications-frame7309">
+                        <span class="notifications-text27">
+                          <span>00/00/0000</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="../website/public/external/vector5i104-hdg.svg"
+                  alt="Vector5I104"
+                  class="notifications-vector54"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="notifications-frame33">
+            <div class="notifications-frame779">
+              <img
+                src="../website/public/external/vectori104-uudf.svg"
+                alt="VectorI104"
+                class="notifications-vector"
+              />
+              <span class="notifications-text29"><span>Dashboard</span></span>
+            </div>
+            <div class="notifications-frame780">
+              <div class="notifications-report">
+                <div class="notifications-group">
+                  <img
+                    src="../website/public/external/vectori104-ofeg.svg"
+                    alt="VectorI104"
+                    class="notifications-vector01"
+                  />
+                  <img
+                    src="../website/public/external/vectori104-ctxc.svg"
+                    alt="VectorI104"
+                    class="notifications-vector02"
+                  />
+                  <img
+                    src="../website/public/external/vectori104-ckc.svg"
+                    alt="VectorI104"
+                    class="notifications-vector03"
+                  />
+                  <img
+                    src="../website/public/external/vectori104-dmjo.svg"
+                    alt="VectorI104"
+                    class="notifications-vector04"
+                  />
+                  <img
+                    src="../website/public/external/vectori104-u935.svg"
+                    alt="VectorI104"
+                    class="notifications-vector05"
+                  />
+                  <img
+                    src="../website/public/external/vectori104-wkfm.svg"
+                    alt="VectorI104"
+                    class="notifications-vector06"
+                  />
+                  <img
+                    src="../website/public/external/vectori104-px9m.svg"
+                    alt="VectorI104"
+                    class="notifications-vector07"
+                  />
+                </div>
+              </div>
+              <span class="notifications-text31"><span>Exeat Form</span></span>
+            </div>
+            <div class="notifications-frame781">
+              <div class="notifications-form">
+                <img
+                  src="../website/public/external/notificationi104-ah9w.svg"
+                  alt="NotificationI104"
+                  class="notifications-notification1"
+                />
+              </div>
+              <span class="notifications-text33">
+                <span>Notification</span>
+              </span>
+            </div>
+            <div class="notifications-frame782">
+              <img
+                src="../website/public/external/vectori104-ajt4.svg"
+                alt="VectorI104"
+                class="notifications-vector08"
+              />
+              <span class="notifications-text35">
+                <span>Exeat History</span>
+              </span>
+            </div>
+            <div class="notifications-frame783">
+              <img
+                src="../website/public/external/vectori104-2r6.svg"
+                alt="VectorI104"
+                class="notifications-vector09"
+              />
+              <span class="notifications-text37"><span>Logout</span></span>
+            </div>
+          </div>
+          <div class="notifications-frame78">
+            <div class="notifications-frame9">
+              <div class="notifications-maskgroup">
+                <img
+                  src="../website/public/external/rectangle13i104-1j1f-200h.png"
+                  alt="Rectangle13I104"
+                  class="notifications-rectangle13"
+                />
+                <img
+                  src="../website/public/external/frontviewmaleflightattendantposing1i104-a7y-200h.png"
+                  alt="frontviewmaleflightattendantposing1I104"
+                  class="notifications-frontviewmaleflightattendantposing1"
+                />
+              </div>
+              <span class="notifications-text39"><span>Dave Corner</span></span>
+            </div>
+            <div class="notifications-frame8">
+              <img
+                src="../website/public/external/rremovebgpreviewtransformed1i104-r9jj-200h.png"
+                alt="Rremovebgpreviewtransformed1I104"
+                class="notifications-rremovebgpreviewtransformed15"
+              />
+              <span class="notifications-text41">
+                <span>MOUTAIN TOP UNIVERSITY</span>
+              </span>
+            </div>
+            <div class="notifications-frame784">
+              <div class="notifications-form1">
+                <img
+                  src="../website/public/external/notificationi104-zugh.svg"
+                  alt="NotificationI104"
+                  class="notifications-notification2"
+                />
+              </div>
+              <div class="notifications-frame7821">
+                <img
+                  src="../website/public/external/ellipse4i104-bh4-200h.png"
+                  alt="Ellipse4I104"
+                  class="notifications-ellipse4"
+                />
+                <span class="notifications-text43">3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

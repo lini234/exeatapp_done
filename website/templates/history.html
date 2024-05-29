@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+Exeat History
+{% endblock %}
+
+{% block content %}
+<link href="static/css/history.css" rel="stylesheet">
+
+
+<table>
+    <br> <br> <br>
+    <tr>
+        <th>Request ID</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+    </tr>
+        {% for history in history %}
+    <tr>
+        <td>#0000{{ history.id }}</td>
+        <td>{{ history.today_date }}</td>
+        <td>{{ history.today_time }}</td>
+        <td>{{ history.status }}</td>
+    </tr>
+    {% endfor %}
+    <!-- Rows can be added here -->
+</table>
+
+{% endblock %}

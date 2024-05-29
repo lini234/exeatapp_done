@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<link href="static/css/history.css" rel="stylesheet">
+
+
+<table>
+    <br> <br> <br>
+    <tr>
+        <th>Request ID</th>
+        <th>Name</th>
+        <th>Leave Date</th>
+        <th>Return Date</th>
+        <th>Status</th>
+    </tr>
+        {% for open_requests in open_requests %}
+    <tr>
+        <td><a href="{{url_for('views.view_requests', id=open_requests.id) }}">#0000{{ open_requests.id }}</a></td>
+        <td>{{ open_requests.surname + " " + open_requests.otherNames }}</td>
+        <td>{{ open_requests.exeat_date }}</td>
+        <td>{{ open_requests.return_date }}</td>
+        <td>{{ open_requests.status }}</td>
+    </tr>
+    {% endfor %}
+    <!-- Rows can be added here -->
+</table>
+
+{% endblock %}
