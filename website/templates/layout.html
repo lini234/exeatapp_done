@@ -68,6 +68,13 @@
 .sidebar .nav-link.active:hover {
   background-color: #003d80;
 }
+/* Custom CSS for your own icons */
+.icon {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px;
+  margin-right: 8px; /* Space between icon and text */
+  vertical-align: middle;
+}
 
   </style>
 </head>
@@ -85,16 +92,16 @@
   <br><br>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link text-light" href="/dashboard">Dashboard</a>
+      <a class="nav-link text-light" href="/dashboard"><img src="static/img/dashboard.png" alt="Dashboard Icon" class="icon">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/pending-requests">Pending Requests</a>
+      <a class="nav-link text-light" href="/pending-requests"><img src="static/img/form.png" alt="Form Icon" class="icon">Pending Requests</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/exeat-history">Exeat History</a>
+      <a class="nav-link text-light" href="/request-history"><img src="static/img/history.png" alt="History Icon" class="icon">Request History</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/logout">Logout</a>
+      <a class="nav-link text-light" href="/logout"><img src="static/img/logout.png" alt="Logout Icon" class="icon">Logout</a>
     </li>
   </ul>
 </div>

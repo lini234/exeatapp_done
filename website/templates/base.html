@@ -6,6 +6,7 @@
   <title>{% block title %}Welcome{% endblock %}</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     /* Custom CSS */
     .sidebar {
@@ -68,7 +69,27 @@
 .sidebar .nav-link.active:hover {
   background-color: #003d80;
 }
-
+/* Custom CSS for your own icons */
+.icon {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px;
+  margin-right: 8px; /* Space between icon and text */
+  vertical-align: middle;
+}
+/* Custom CSS for the logo */
+.logo {
+  width: 40px; /* Adjust the size as needed */
+  height: auto;
+  margin-right: 10px; /* Space between logo and text */
+}
+.navbar-brand{
+  display: flex;
+  align-items: center;
+}
+/* Custom CSS for the username text */
+.navbar-text {
+  font-weight: bold; /* Optionally, make the username text bold */
+}
   </style>
 </head>
 <body>
@@ -76,6 +97,9 @@
 <!-- Header -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand custom-text" href="#">MOUNTAIN TOP UNIVERSITY</a>
+  <span class="navbar-text ml-auto">
+    {{ user.surname }} {{ user.otherNames }}<!-- Replace 'Username' with the actual username -->
+  </span>
 </nav>
 
 <main>
@@ -85,19 +109,16 @@
   <br><br>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link text-light" href="/">Dashboard</a>
+      <a class="nav-link text-light" href="/"><img src="static/img/dashboard.png" alt="Dashboard Icon" class="icon">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/exeat-form">Exeat Form</a>
+      <a class="nav-link text-light" href="/exeat-form"><img src="static/img/form.png" alt="Form Icon" class="icon">Exeat Form</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/notifications">Notifications</a>
+      <a class="nav-link text-light" href="/exeat-history"><img src="static/img/history.png" alt="History Icon" class="icon">Exeat History</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/exeat-history">Exeat History</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-light" href="/logout">Logout</a>
+      <a class="nav-link text-light" href="/logout"><img src="static/img/logout.png" alt="Logout Icon" class="icon">Logout</a>
     </li>
   </ul>
 </div>

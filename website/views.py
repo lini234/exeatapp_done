@@ -10,12 +10,12 @@ views = Blueprint('views', __name__)
 @views.route('/')
 @login_required
 def home():
-    return render_template('index.html')
+    return render_template('index.html', user=current_user)
 
 @views.route('/dashboard')
 @login_required
 def staff_dashboard():
-    return render_template('staff_dashboard.html')
+    return render_template('staff_dashboard.html', user=current_user)
 
 @views.route('/exeat-form', methods=['GET', 'POST'])
 @login_required
@@ -47,7 +47,7 @@ def exeat_form():
 @views.route('/exeat-history', methods=['GET', 'POST'])
 def history():
     history = Exeat.query.filter_by(matricNumber=current_user.matricNumber).all()
-    return render_template('history.html', history=history)
+    return render_template('history.html', history=history, user=current_user)
 
 @views.route('/notifications', methods=['GET', 'POST'])
 def notifcations():
@@ -56,7 +56,7 @@ def notifcations():
 @views.route('pending-requests')
 def pending_requests():
     open_requests = Exeat.query.filter_by(status='Pending').all()
-    return render_template('pending_requests.html', open_requests=open_requests)
+    return render_template('pending_requests.html', open_requests=open_requests, user=current_user)
 
 @views.route('/view-requests/<id>', methods=['GET', 'POST'])
 def view_requests(id):
@@ -68,4 +68,9 @@ def view_requests(id):
 
         db.session.commit()
 
-    return render_template('view_requests.html', open_requests=open_requests)
+    return render_template('view_requests.html', open_requests=open_requests, user=current_user)
+
+@views.route('/request-history', methods=['GET', 'POST'])
+def request_history():
+    open_requests = Exeat.query.all()
+    return render_template('request_history.html', open_requests=open_requests, user=current_user)
