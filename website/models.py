@@ -11,7 +11,14 @@ class User(db.Model, UserMixin):
     department = db.Column(db.String(150))
     college = db.Column(db.String(150))
     level = db.Column(db.Integer)
+    profile_picture = db.relationship('ProfilePicture', uselist=False, backref='user')
     exeat = db.Relationship('Exeat')
+
+class ProfilePicture(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    filename = db.Column(db.String(150), nullable=False)
+    filepath = db.Column(db.String(300), nullable=False)
 
 class Staff(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -35,4 +42,7 @@ class Exeat(db.Model):
     status = db.Column(db.String(20))
     today_date = db.Column(db.String(20))
     today_time = db.Column(db.String(20))
+    laptop = db.Column(db.String(50))
+    hostel = db.Column(db.String(50))
+    room = db.Column(db.String(50))
     user_id = db.Column(db.String(11), db.ForeignKey('user.id'))

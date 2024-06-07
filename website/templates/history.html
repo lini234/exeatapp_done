@@ -18,7 +18,7 @@ Exeat History
     </tr>
         {% for history in history %}
     <tr>
-        <td>#0000{{ history.id }}</td>
+        <td><a href="{{ url_for('views.notifications', id=history.id) }}">#0000{{ history.id }}</a></td>
         <td>{{ history.today_date }}</td>
         <td>{{ history.today_time }}</td>
         <td>{{ history.status }}</td>

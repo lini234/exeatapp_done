@@ -7,6 +7,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <style>
     /* Custom CSS */
     .sidebar {
@@ -47,11 +48,11 @@
 
 .sidebar .nav-link {
   display: block;
-  padding: 10px 20px;
+  padding: 25px 20px;
   margin: 5px 0;
   background-color: #2C3AB1;
   color: white;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -90,6 +91,14 @@
 .navbar-text {
   font-weight: bold; /* Optionally, make the username text bold */
 }
+
+  .profile-picture {
+      width: 30px; /* Desired width */
+      height: 30px; /* Desired height */
+      border-radius: 50%; /* Makes the image circular */
+      object-fit: cover; /* Ensures the image covers the container without stretching */
+      border: 2px solid #ccc; /* Optional: Add a border around the image */
+  }
   </style>
 </head>
 <body>
@@ -98,6 +107,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand custom-text" href="#">MOUNTAIN TOP UNIVERSITY</a>
   <span class="navbar-text ml-auto">
+    <img src="/static/uploads/{{ user.profile_picture.filename }}" class="profile-picture">
     {{ user.surname }} {{ user.otherNames }}<!-- Replace 'Username' with the actual username -->
   </span>
 </nav>
@@ -109,16 +119,16 @@
   <br><br>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link text-light" href="/"><img src="static/img/dashboard.png" alt="Dashboard Icon" class="icon">Dashboard</a>
+      <a class="nav-link text-light" href="/"><img src="/static/img/dashboard.png" alt="Dashboard Icon" class="icon">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/exeat-form"><img src="static/img/form.png" alt="Form Icon" class="icon">Exeat Form</a>
+      <a class="nav-link text-light" href="/exeat-form"><img src="/static/img/form.png" alt="Form Icon" class="icon">Exeat Form</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/exeat-history"><img src="static/img/history.png" alt="History Icon" class="icon">Exeat History</a>
+      <a class="nav-link text-light" href="/exeat-history"><img src="/static/img/history.png" alt="History Icon" class="icon">Exeat History</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="/logout"><img src="static/img/logout.png" alt="Logout Icon" class="icon">Logout</a>
+      <a class="nav-link text-light" href="/logout"><img src="/static/img/logout.png" alt="Logout Icon" class="icon">Logout</a>
     </li>
   </ul>
 </div>
@@ -136,6 +146,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
     const currentLocation = location.pathname;

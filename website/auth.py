@@ -1,8 +1,10 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User, Staff
+from .models import User, Staff, ProfilePicture
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db
+from . import db, UPLOAD_FOLDER
 from flask_login import login_user, login_required, logout_user, current_user
+from werkzeug.utils import secure_filename
+import os
 
 auth = Blueprint('auth', __name__)
 
@@ -36,6 +38,8 @@ def register():
         email = request.form.get('email')
         password = request.form.get('password')
         confirmPassword = request.form.get('confirmPassword')
+        profile_picture = request.files.get('profilePicture')
+        print(profile_picture)
 
         user = User.query.filter_by(matricNumber=matricNumber).first()
         if user:
@@ -43,20 +47,32 @@ def register():
         elif len(email) < 4:
             flash('Email must be greater than 3 characters.', category='error')
         elif len(surname) < 2:
-            flash('Name must be greater than 1 character.', category='error')
+            flash('Surname must be greater than 1 character.', category='error')
         elif len(otherNames) < 2:
-            flash('Name must be greater than 1 character.', category='error')
+            flash('Other names must be greater than 1 character.', category='error')
         elif password != confirmPassword:
            flash('Passwords don\'t match.', category='error')
         elif len(password) < 7:
-           flash('Password must be atleast 7 character', category='error')
+           flash('Password must be at least 7 characters.', category='error')
         else:
             # add user to database
             new_user = User(surname=surname, otherNames=otherNames, matricNumber=matricNumber, level=level,
-                            college=college, department=department, email=email, password=generate_password_hash(password, method='pbkdf2:sha256'))
+                            college=college, department=department, email=email,
+                            password=generate_password_hash(password, method='pbkdf2:sha256'))
             db.session.add(new_user)
             db.session.commit()
-            #login_user(user, remember=True)
+
+            # Handle profile picture upload
+            if profile_picture:
+                filename = secure_filename(profile_picture.filename)
+                upload_folder = UPLOAD_FOLDER
+                filepath = os.path.join(upload_folder, filename)
+                profile_picture.save(filepath)
+
+                # Add profile picture to the database
+                new_profile_picture = ProfilePicture(user_id=new_user.id, filename=filename, filepath=filepath)
+                db.session.add(new_profile_picture)
+                db.session.commit()
 
             flash('Account created', category='success')
             return redirect(url_for('views.home'))
@@ -74,7 +90,7 @@ def staff_login():
             if check_password_hash(staff.password, password):
                 flash('Logged in successfully!', category='success')
                 login_user(staff, remember=True)
-                return redirect(url_for('views.staff_dashboard'))
+                return redirect(url_for('views.pending_requests'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else:

@@ -1,15 +1,148 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends 'base.html' %}
 
-<link href="static/css/notifications.css" rel="stylesheet">
-<div class="container">
-    <div class="notification">
-        <img src="static/img/mtu_logo.png" alt="Logo" class="logo">
-        <div class="content">
-            <div class="title">Info</div>
-            <div class="message">This is an informational message.</div>
+{% block title %}
+Exeat Permit Form
+{% endblock %}
+
+{% block content %}
+<link href="/static/css/exeat.css" rel="stylesheet"> <!-- Link to your CSS file -->
+<style>
+    .exeat-form {
+        max-width: 600px; /* Set maximum width for the form */
+        margin: 20px auto; /* Center the form and add space around it */
+    }
+    .watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px; /* Adjust size as needed */
+    height: 700px; /* Adjust size as needed */
+    transform: translate(-50%, -50%);
+    opacity: 0.2; /* Adjust transparency as needed */
+    pointer-events: none;
+    z-index: -1;
+}
+</style>
+<br>
+<br>
+<div class="container mt-5 exeat-container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-8">
+            <form class="exeat-form" method="GET" id="exeatForm">
+                {% if request.status == 'Approved' %}
+                    <img src="/static/img/approved.png" class="watermark" alt="Approved">
+                {% else %}
+                    <img src="/static/img/declined.png" class="watermark" alt="Rejected">
+                {% endif %}
+            <h2 class="text-center mb-4">Mountain Top University Exeat Permit</h2>
+            <p class="text-center mb-4">Students’ Affairs Division<br>Km 12, Lagos-Ibadan Expressway, Prayer City, Nigeria</p>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exeatDate">Exeat Date</label>
+                        <input type="date" class="form-control" id="exeatDate" name="exeatDate" value="{{ request.exeat_date }}" readonly>
+                    </div>
+                    <div class="form-group col-md-6 text-right">
+                        <label for="returnDate">Return Date</label>
+                        <input type="date" class="form-control" id="returnDate" name="returnDate" value="{{ request.return_date }}" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="surname">Surname:</label>
+                        <input type="text" class="form-control" id="surname" name="surname" value="{{ request.surname }}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="otherNames">Other Names:</label>
+                        <input type="text" class="form-control" id="otherNames" name="otherNames" value="{{ request.otherNames }}" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="matricNumber">Matric Number:</label>
+                        <input type="text" class="form-control" id="matricNumber" name="matricNumber" value="{{ request.matricNumber }}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="level">Level:</label>
+                        <input type="text" class="form-control" id="level" name="level" value="{{ request.level }}" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="college">College:</label>
+                        <input type="text" class="form-control" id="college" name="college" value="{{ request.college }}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="department">Department:</label>
+                        <input type="text" class="form-control" id="department" name="department" value="{{ request.department }}" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="hostel">Hostel:</label>
+                        <input type="text" class="form-control" id="hostel" name="hostel" value="{{ request.hostel }}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="roomNumber">Room Number:</label>
+                        <input type="text" class="form-control" id="roomNumber" name="roomNumber" value="{{ request.room }}" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Leaving:</label>
+                    <textarea class="form-control" id="reason" name="reason" rows="3" readonly>{{ request.reason }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Are you taking your laptop?</label>
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="laptopYes" name="laptop" value="yes"{% if laptop_preference == 'yes' %}checked{% endif %} disabled>
+                                <label class="form-check-label" for="laptopYes">Yes</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="laptopNo" name="laptop" value="no" {% if laptop_preference == 'no' %}checked{% endif %} disabled>
+                                <label class="form-check-label" for="laptopNo">No</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="noLaptop" name="laptop" value="dont_have"{% if laptop_preference == 'dont_have' %}checked{% endif %} disabled>
+                                <label class="form-check-label" for="noLaptop">Don't have a laptop</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea class="form-control" id="address" name="address" rows="3" readonly>{{ request.address }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="parentsNumber">Parent's Phone Number:</label>
+                    <input type="text" class="form-control" id="parentsNumber" name="parentsNumber" value="{{ request.parentsNumber }}" readonly>
+                </div>
+
+            </form>
         </div>
     </div>
 </div>
+
+<script>
+    // Function to allow only one checkbox to be checked at a time
+    document.querySelectorAll('input[type="checkbox"][name="laptop"]').forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                document.querySelectorAll('input[type="checkbox"][name="laptop"]').forEach(function(otherCheckbox) {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+
 
 {% endblock %}

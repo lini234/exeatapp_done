@@ -35,4 +35,18 @@ h1, h2 {
     width: 130px;
     height: 120px;
 }
+.column-line {
+    text-align: justify;
+}
 
+.column-text {
+    font-weight: bold;
+    font-family: Poppins;
+}
+
+.custom-class{
+    margin-left: 120px;
+}
+.column-color{
+    color: #2C3AB1;
+}
